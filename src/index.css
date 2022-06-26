@@ -47,6 +47,10 @@ nav li a {
   text-decoration: none;
 }
 
+a{
+  color: wheat;
+}
+
 .active {
   color: wheat;
   transition: all .3s ease-out;
