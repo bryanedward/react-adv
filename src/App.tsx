@@ -1,5 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 import { Navigation } from './routes/Navigation';
+import { ProductCard } from './components/ProductCard';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Outlet />
       </nav>
       <div>
-        ok
+        <ProductCard/>
       </div>
     </div>
   );
