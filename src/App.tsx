@@ -1,10 +1,11 @@
 import { Link, Outlet } from 'react-router-dom';
-import { Navigation } from './routes/Navigation';
-import { ProductCard } from './components/ProductCard';
+import { Principal } from './pages/Principal';
+
+
 
 function App() {
   return (
-    <div style={{display:'flex'}}>
+    <div style={{ display: 'flex' }}>
       <nav style={{
         borderBottom: "solid 1px",
         paddingBottom: "1rem",
@@ -15,7 +16,7 @@ function App() {
         <Outlet />
       </nav>
       <div>
-        <ProductCard/>
+       <Principal/>
       </div>
     </div>
   );

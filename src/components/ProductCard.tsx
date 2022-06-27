@@ -1,29 +1,18 @@
-import React, { useState } from 'react'
 import styles from '../styles/styles.module.css'
+import { useButton } from '../hooks/useButton';
+import React, { createContext } from 'react';
+import { ProductsProps, CardProps } from '../interfaces/interfaces';
 
-export const ProductCard = () => {
+export const context = createContext( {} as ProductsProps )
 
-  const [first, setfirst] = useState(0)
-
-  const incremet = (value : number) => {
-    setfirst(prev => Math.max(prev + value , 0))
-  }
-
+export const ProductCard = ( { children, product }: CardProps ) => {
+  const { first, incremet } = useButton()
   return (
-    <div>
-       <div className={styles.productCard}>
-      <img  className={styles.productImg} src="./coffee.png" alt="coffe png" />
-      <span className={styles.productDescription} >coffe mug</span>
-      <div className={styles.buttonsContainer}>
-        <button className={styles.buttonMinus}
-        onClick={() => incremet(-1)}>-</button>    
-        <div className={styles.countLabel}>
-          {first}
-        </div>
-        <button className={styles.buttonAdd}
-        onClick={() => incremet(+1)}>+</button>
+    <context.Provider value={{ first, incremet, product }}>
+      <div className={styles.productCard}>
+        {children}
       </div>
-    </div>
-    </div>
+    </context.Provider>
   )
 }
+
