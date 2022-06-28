@@ -3,14 +3,21 @@ import noimagen from '../assets/no-image.jpg'
 import styles from '../styles/styles.module.css'
 import { context } from './ProductCard';
 
-export const ProductImage = ( { img = '' } ) => {
+
+export interface ProductImgProps {
+    img?: string
+    activeImg?: string
+}
+
+
+export const ProductImage = ( { img }: ProductImgProps ) => {
     const { product } = useContext( context )
-    let imgProduct : string
-    if(img){
+    let imgProduct: string
+    if ( img ) {
         imgProduct = img
-    }else if(product.img) {
+    } else if ( product.img ) {
         imgProduct = product.img
-    }else{
+    } else {
         imgProduct = noimagen
     }
     return (
