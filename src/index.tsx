@@ -9,14 +9,7 @@ import LazyPage2 from './pages/LazyPage2';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route path="lazy1" element={<LazyPage1 />} />
-          <Route path="lazy2" element={<LazyPage2 />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+  <App/>
   </React.StrictMode>,
   document.getElementById( 'root' )
 );

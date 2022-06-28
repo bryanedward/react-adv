@@ -14,6 +14,7 @@ export interface CardProps {
 export const context = createContext( {} as ProductsProps )
 
 export const ProductCard = ( { children, product, className, style }: CardProps ) => {
+  // compount component pattern
   const { first, incremet } = useButton()
   return (
     <context.Provider value={{ first, incremet, product }}>
