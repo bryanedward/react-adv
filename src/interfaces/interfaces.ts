@@ -10,7 +10,7 @@ export interface Products {
 }
 
 export interface ProductsProps {
-  first: number, incremet: ( cant: number ) => void, product: Products
+  count: number, incremet: ( cant: number ) => void, product: Products
 }
 
 export interface ProductCardProps {
@@ -18,4 +18,9 @@ export interface ProductCardProps {
   Title: ( Props: ProductTtitleProps ) => JSX.Element,
   Img: ( Props: ProductImgProps ) => JSX.Element,
   Button: ( Props: ButtonProps ) => JSX.Element
+}
+
+
+export interface oncChangeArgs {
+  product : Products; counter: number
 }

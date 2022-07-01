@@ -1,14 +1,24 @@
 import { useState } from 'react'
+import { Products, oncChangeArgs } from '../interfaces/interfaces';
 
-export const useButton = () => {
-    const [first, setfirst] = useState( 0 )
+
+interface useProductsArgsProps{
+    product: Products
+    onChange?: (args: oncChangeArgs) => void
+}
+
+export const useButton = ( {onChange, product} : useProductsArgsProps ) => {
+    const [count, setCount] = useState( 0 )
 
     const incremet = ( value: number ) => {
-        setfirst( prev => Math.max( prev + value, 0 ) )
+        const newValue = Math.max(count + value, 0)
+        setCount( count => Math.max( count + value, 0 ) )
+        // guarda la cantida de productos y los datos del registro
+        onChange && onChange({counter: newValue, product})
     }
 
     return {
-        first,
+        count,
         incremet
     }
 }
